@@ -1,4 +1,5 @@
-#include <Mad.h>
+#include "Mad.h"
+#include "madpch.h"
 class Sandbox : public Mad::Application {
 public:
 	Sandbox()
