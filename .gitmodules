@@ -1,0 +1,3 @@
+[submodule "Mad/port/spdlog"]
+	path = Mad/port/spdlog
+	url = https://github.com/gabime/spdlog
