@@ -71,6 +71,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\madpch.h" />
+    <ClInclude Include="src\Mad\KeyCodes.h" />
+    <ClInclude Include="src\Mad\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mad\Application.cpp">
