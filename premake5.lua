@@ -12,8 +12,12 @@ workspace "Mad"
 
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Mad/port/GLFW/include"
-
+	IncludeDir["Glad"] = "Mad/port/Glad/include"
+	IncludeDir["ImGui"] = "Mad/port/imgui"
+	
 	include "Mad/port/GLFW"
+	include "Mad/port/Glad"
+	include "Mad/port/imgui"
 
 	project "Mad"
 		location "Mad"
@@ -35,10 +39,14 @@ workspace "Mad"
 		{
 			"%{prj.name}/src",
 			"%{prj.name}/port/spdlog/include",
-			"%{IncludeDir.GLFW}"
+			"%{IncludeDir.GLFW}",
+			"%{IncludeDir.ImGui}",
+			"%{IncludeDir.Glad}"
 		}
 		links {
 			"GLFW",
+			"Glad",
+			"ImGui",
 			"opengl32.lib"
 		}
 
@@ -51,7 +59,8 @@ workspace "Mad"
 			defines {
 
 			"MAD_PLATFORM_WINDOWS",
-			"MAD_BUILD_DLL"
+			"MAD_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 			}
 
 			postbuildcommands 
@@ -59,17 +68,20 @@ workspace "Mad"
 				("{copy} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 			}
 
-			filter "configurations:Debug"
-				defines "MAD_DEBUG"
-				symbols "On"
-				
-			filter "configurations:Release"
-				defines "MAD_RELEASE"
-				optimize "On"
+		filter "configurations:Debug"
+			defines "HZ_DEBUG"
+			buildoptions "/MDd"
+			symbols "On"
 
-			filter "configurations:Dist"
-				defines "MAD_DIST"
-				optimize "On"
+		filter "configurations:Release"
+			defines "HZ_RELEASE"
+			buildoptions "/MD"
+			optimize "On"
+
+		filter "configurations:Dist"
+			defines "HZ_DIST"
+			buildoptions "/MD"
+			optimize "On"
 
 
 
@@ -106,14 +118,18 @@ workspace "Mad"
 			"MAD_PLATFORM_WINDOWS"
 			}
 
-			filter "configurations:Debug"
-				defines "MAD_DEBUG"
-				symbols "On"
-				
-			filter "configurations:Release"
-				defines "MAD_RELEASE"
-				optimize "On"
 
-			filter "configurations:Dist"
-				defines "MAD_DIST"
-				optimize "On"
+	filter "configurations:Debug"
+		defines "HZ_DEBUG"
+		buildoptions "/MDd"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "HZ_RELEASE"
+		buildoptions "/MD"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "HZ_DIST"
+		buildoptions "/MD"
+		optimize "On" 
