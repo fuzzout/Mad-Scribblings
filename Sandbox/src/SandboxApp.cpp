@@ -1,7 +1,7 @@
 #include "Mad.h"
 #include "madpch.h"
-
 #include "Mad/ImGui/ImGuiLayer.h"
+#include "../imgui/imgui.h"
 
 bool logging = false;
 
@@ -9,11 +9,19 @@ class ExampleLayer : public Mad::Layer {
 public:
 	ExampleLayer() : Layer("Example")
 	{
+
 	}
 
 	void OnUpdate() override
 	{
 
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(Mad::Event& event) override {
@@ -37,7 +45,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Mad::ImGuiLayer());
 	}
 
 	~Sandbox() {

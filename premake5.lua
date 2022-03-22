@@ -14,6 +14,7 @@ workspace "Mad"
 	IncludeDir["GLFW"] = "Mad/port/GLFW/include"
 	IncludeDir["Glad"] = "Mad/port/Glad/include"
 	IncludeDir["ImGui"] = "Mad/port/imgui"
+	IncludeDir["glm"] = "Mad/port/glm"
 	
 	include "Mad/port/GLFW"
 	include "Mad/port/Glad"
@@ -21,9 +22,10 @@ workspace "Mad"
 
 	project "Mad"
 		location "Mad"
-		kind "SharedLib"
+		kind "StaticLib"
 		language "C++"
-		staticruntime "off"
+		cppdialect "C++17"
+		staticruntime "on"
 
 		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 		objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -35,14 +37,19 @@ workspace "Mad"
 			"%{prj.name}/src/**.h",
 			"%{prj.name}/src/**.cpp"
 		}
-
+		
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
 		includedirs 
 		{
 			"%{prj.name}/src",
 			"%{prj.name}/port/spdlog/include",
 			"%{IncludeDir.GLFW}",
 			"%{IncludeDir.ImGui}",
-			"%{IncludeDir.Glad}"
+			"%{IncludeDir.Glad}",
+			"%{IncludeDir.glm}"
 		}
 		links {
 			"GLFW",
@@ -52,7 +59,6 @@ workspace "Mad"
 		}
 
 		filter "system:windows"
-			cppdialect "C++17"
 			systemversion "latest"
 
 			defines {
@@ -60,11 +66,6 @@ workspace "Mad"
 			"MAD_PLATFORM_WINDOWS",
 			"MAD_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-			}
-
-			postbuildcommands 
-			{
-				("{copy} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 			}
 
 		filter "configurations:Debug"
@@ -88,7 +89,8 @@ workspace "Mad"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 		objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -101,6 +103,7 @@ workspace "Mad"
 		includedirs
 		{
 			"Mad/port/spdlog/include",
+			"Mad/port/glm",
 			"Mad/src"
 		}
 
@@ -110,7 +113,6 @@ workspace "Mad"
 			}
 
 			filter "system:windows"
-			cppdialect "C++17"
 			systemversion "latest"
 
 			defines {
@@ -121,14 +123,14 @@ workspace "Mad"
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
 		runtime "Release"
-		optimize "On" 
+		optimize "on" 

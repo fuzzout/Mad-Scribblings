@@ -7,6 +7,10 @@
 #include "Mad/Events/Event.h"
 #include "Mad/Events/ApplicationEvent.h"
 
+#include "Mad/ImGui/ImGuiLayer.h"
+
+
+
 namespace Mad {
 
 	class MAD_API Application
@@ -32,6 +36,7 @@ namespace Mad {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

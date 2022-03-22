@@ -1,11 +1,16 @@
 #pragma once
 
 #ifdef MAD_PLATFORM_WINDOWS
+#if MAD_DYNAMIC_LINK
 	#ifdef MAD_BUILD_DLL
 		#define MAD_API __declspec(dllexport)
 			#else
 			#define MAD_API __declspec(dllimport)
 		#endif
+#else
+#define MAD_API
+#endif
+
 #else
 #error Mad only supports windows!
 #endif
