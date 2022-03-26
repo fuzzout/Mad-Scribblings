@@ -5,6 +5,9 @@
 
 bool logging = false;
 
+const char* poo = "Press tab to close.";
+
+
 class ExampleLayer : public Mad::Layer {
 public:
 	ExampleLayer() : Layer("Example")
@@ -20,7 +23,11 @@ public:
 	virtual void OnImGuiRender() override
 	{
 		ImGui::Begin("Test");
-		ImGui::Text("Hello World");
+		ImGui::Text(poo);
+		if (ImGui::Button("Press me to send text")) {
+			poo = "You done goofed now boi.";
+
+		}
 		ImGui::End();
 	}
 
@@ -31,9 +38,6 @@ public:
 		if (event.GetEventType() == Mad::EventType::KeyPressed)
 		{
 			Mad::KeyPressedEvent& e = (Mad::KeyPressedEvent&)event;
-			if (e.GetKeyCode() == MAD_KEY_TAB) {
-				MAD_TRACE("Tab key pressed.");
-			} else
 			MAD_TRACE("EVENT: Key pressed: {0}", (char)e.GetKeyCode());
 		}
 	}

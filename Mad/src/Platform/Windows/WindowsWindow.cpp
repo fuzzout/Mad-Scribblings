@@ -5,7 +5,7 @@
 #include "Mad/Events/MouseEvent.h"
 #include "Mad/Events/KeyEvent.h"
 
-#include "glad/glad.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Mad {
 	static bool s_GLFWInitialized = false;
@@ -35,6 +35,7 @@ namespace Mad {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
+
 		MAD_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized)
@@ -46,9 +47,12 @@ namespace Mad {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		MAD_CORE_ASSERT(status, "Failed to initialize GLAD!");
+
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
+
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -142,7 +146,7 @@ namespace Mad {
 
 	void WindowsWindow::OnUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffer();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

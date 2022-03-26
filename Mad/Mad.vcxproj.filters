@@ -71,6 +71,12 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\madpch.h" />
+    <ClInclude Include="src\Mad\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Mad\Renderer\Shader.h" />
+    <ClInclude Include="src\Mad\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Mad\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mad\Application.cpp">
@@ -98,5 +104,10 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\madpch.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Mad\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Mad\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Mad\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

@@ -3,6 +3,8 @@
 
 #include <GLFW/glfw3.h>
 
+#include "Mad/Renderer/GraphicsContext.h"
+
 namespace Mad {
 
 	class WindowsWindow : public Window 
@@ -27,12 +29,13 @@ namespace Mad {
 			virtual void Shutdown();
 		private:
 			GLFWwindow* m_Window;
+			GraphicsContext* m_Context;
 
 			struct WindowData
 			{
 				std::string Title;
-				unsigned int Width, Height;
-				bool VSync;
+				unsigned int Width, Height = 0;
+				bool VSync = true;
 
 				EventCallbackFn EventCallback;
 			};
