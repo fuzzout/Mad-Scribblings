@@ -1,6 +1,5 @@
 #include "Mad.h"
 #include "Platform/OpenGL/OpenGLShader.h"
-#include "Mad/ImGui/ImGuiLayer.h"
 #include "../imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
@@ -10,7 +9,8 @@ bool logging = false;
 
 class ExampleLayer : public Mad::Layer {
 public:
-	ExampleLayer() : Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+	ExampleLayer()
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Mad::VertexArray::Create());
 
@@ -128,15 +128,14 @@ public:
 
 	void OnUpdate(Mad::Timestep ts) override
 	{
+		// Update
+		m_CameraController.OnUpdate(ts);
 		Mad::RenderCommand::SetClearColor({ 1, 1, 0, 1 });
 		Mad::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
+		Mad::Renderer::BeginScene(m_CameraController.GetCamera());
 
-		Mad::Renderer::BeginScene(m_Camera);
-
-		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.7f));
 
 		std::dynamic_pointer_cast<Mad::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<Mad::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
@@ -161,15 +160,13 @@ public:
 	{
 		ImGui::Begin("Settings");
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
-		ImGui::SliderFloat("Pos X", &m_CameraPosition.x, 0.01f, 2.0f);
-		ImGui::SliderFloat("Pos Y", &m_CameraPosition.y, 0.01f, 2.0f);
 		ImGui::End();
 	}
 
-	void OnEvent(Mad::Event& event) override {
-		Mad::EventDispatcher dispatch(event);
+	void OnEvent(Mad::Event& e) override {
+		m_CameraController.OnEvent(e);
+		Mad::EventDispatcher dispatch(e);
 		dispatch.Dispatch<Mad::KeyPressedEvent>(MAD_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));
-
 	}
 	bool OnKeyPressedEvent(Mad::KeyPressedEvent& event) {
 
@@ -193,8 +190,7 @@ private:
 		Mad::Ref<Mad::Shader> m_FlatColorShader;
 		Mad::Ref<Mad::Shader> m_TextureShader;
 
-		Mad::OrthographicCamera m_Camera;
-		glm::vec3 m_CameraPosition;
+		Mad::OrthographicCameraController m_CameraController;
 
 		glm::vec3 m_SquareTransform;
 		Mad::ShaderLibrary m_ShaderLibrary;
@@ -203,7 +199,6 @@ private:
 		Mad::Ref<Mad::Texture2D> m_Texture, m_SecondTex;
 
 		float cameraSpeed = 0.01f;
-		float m_CameraRotation = 0.0f;
 };
 
 class Sandbox : public Mad::Application {

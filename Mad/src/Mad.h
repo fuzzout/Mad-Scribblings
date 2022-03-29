@@ -9,7 +9,7 @@
 #include "Mad/Log.h"
 #include "Mad/Core/Timestep.h"
 #include "Mad/Input.h"
-//#include "Mad/OrthographicCameraController.h"
+#include "Mad/OrthographicCameraController.h"
 #include "Mad/ImGui/ImGuiLayer.h"
 
 //Renderer below

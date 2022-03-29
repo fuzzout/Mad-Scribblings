@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Mad\OrthographicCameraController.h" />
     <ClInclude Include="port\stb_image\stb_image.h" />
     <ClInclude Include="src\Mad.h" />
     <ClInclude Include="src\Mad\Application.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\madpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mad\OrthographicCameraController.cpp" />
     <ClCompile Include="port\stb_image\stb_image.cpp" />
     <ClCompile Include="src\Mad\Application.cpp" />
     <ClCompile Include="src\Mad\ImGui\ImGuiBuild.cpp" />
