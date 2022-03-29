@@ -8,7 +8,4 @@ namespace Mad {
 	{
 	}
 
-	Layer::~Layer() {
-
-	}
 }

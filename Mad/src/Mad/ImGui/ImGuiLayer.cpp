@@ -19,10 +19,6 @@ namespace Mad {
 	{
 	}
 
-	ImGuiLayer::~ImGuiLayer()
-	{
-	}
-
 	void ImGuiLayer::OnAttach()
 	{
 		// Setup Dear ImGui context
@@ -91,7 +87,7 @@ namespace Mad {
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		static bool show = false;
+		//ImGui::ShowDemoWindow(&show);
 	}
 }

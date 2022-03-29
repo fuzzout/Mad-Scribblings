@@ -1,113 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Mad">
-      <UniqueIdentifier>{5707880B-C310-887C-4C8C-9E7CB894937C}</UniqueIdentifier>
+    <Filter Include="port">
+      <UniqueIdentifier>{4A619C7C-3698-9D0D-DF84-8310CB9A190F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Mad\Events">
-      <UniqueIdentifier>{5B2B2FA5-47E3-70F2-B0EA-494E9CC10BE3}</UniqueIdentifier>
+    <Filter Include="port\stb_image">
+      <UniqueIdentifier>{64B6D019-5084-C41F-3918-35462585A084}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Mad\ImGui">
-      <UniqueIdentifier>{C1614405-2DCC-F87B-760A-AA21E2B3D6D0}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform">
-      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    <Filter Include="src\Mad">
+      <UniqueIdentifier>{EE932FA9-5A73-AE44-638B-391BCFE914A6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    <Filter Include="src\Mad\Core">
+      <UniqueIdentifier>{065D88D3-F2BF-1778-9B45-502E8787E3FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mad\Events">
+      <UniqueIdentifier>{12C835DC-FE95-29E2-E729-9A08D3960547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mad\ImGui">
+      <UniqueIdentifier>{98C3FE44-0484-7A7B-CDBE-C3F8393EBF57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mad\Renderer">
+      <UniqueIdentifier>{5423C3B7-401C-E209-694E-C78E55A6C115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\Windows">
+      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Mad.h" />
+    <ClInclude Include="port\stb_image\stb_image.h">
+      <Filter>port\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mad\Application.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Core.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\Timestep.h">
+      <Filter>src\Mad\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\EntryPoint.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\ApplicationEvent.h">
-      <Filter>Mad\Events</Filter>
+      <Filter>src\Mad\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\Event.h">
-      <Filter>Mad\Events</Filter>
+      <Filter>src\Mad\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\KeyEvent.h">
-      <Filter>Mad\Events</Filter>
+      <Filter>src\Mad\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\MouseEvent.h">
-      <Filter>Mad\Events</Filter>
+      <Filter>src\Mad\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\ImGui\ImGuiLayer.h">
-      <Filter>Mad\ImGui</Filter>
+      <Filter>src\Mad\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Input.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\KeyCodes.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Layer.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\LayerStack.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Log.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\MouseButtonCodes.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Buffer.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\GraphicsContext.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\OrthographicCamera.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\RenderCommand.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Renderer.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\RendererAPI.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Shader.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Texture.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\VertexArray.h">
+      <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Window.h">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\madpch.h" />
-    <ClInclude Include="src\Mad\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Mad\Renderer\Shader.h" />
-    <ClInclude Include="src\Mad\Renderer\Buffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\Mad\Renderer\Renderer.h" />
+    <ClInclude Include="src\madpch.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="port\stb_image\stb_image.cpp">
+      <Filter>port\stb_image</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mad\Application.cpp">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\ImGui\ImGuiBuild.cpp">
-      <Filter>Mad\ImGui</Filter>
+      <Filter>src\Mad\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\ImGui\ImGuiLayer.cpp">
-      <Filter>Mad\ImGui</Filter>
+      <Filter>src\Mad\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Layer.cpp">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\LayerStack.cpp">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Log.cpp">
-      <Filter>Mad</Filter>
+      <Filter>src\Mad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Buffer.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\RenderCommand.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Renderer.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\RendererAPI.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Shader.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Texture.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\VertexArray.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\madpch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Mad\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Mad\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\Mad\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\madpch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

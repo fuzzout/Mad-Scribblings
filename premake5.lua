@@ -15,6 +15,7 @@ workspace "Mad"
 	IncludeDir["Glad"] = "Mad/port/Glad/include"
 	IncludeDir["ImGui"] = "Mad/port/imgui"
 	IncludeDir["glm"] = "Mad/port/glm"
+	IncludeDir["stb_image"] = "Mad/port/stb_image"
 	
 	include "Mad/port/GLFW"
 	include "Mad/port/Glad"
@@ -35,7 +36,9 @@ workspace "Mad"
 
 		files {
 			"%{prj.name}/src/**.h",
-			"%{prj.name}/src/**.cpp"
+			"%{prj.name}/src/**.cpp",
+			"%{prj.name}/port/stb_image/**.h",
+			"%{prj.name}/port/stb_image/**.cpp"
 		}
 		
 	defines
@@ -49,7 +52,8 @@ workspace "Mad"
 			"%{IncludeDir.GLFW}",
 			"%{IncludeDir.ImGui}",
 			"%{IncludeDir.Glad}",
-			"%{IncludeDir.glm}"
+			"%{IncludeDir.glm}",
+			"%{IncludeDir.stb_image}"
 		}
 		links {
 			"GLFW",

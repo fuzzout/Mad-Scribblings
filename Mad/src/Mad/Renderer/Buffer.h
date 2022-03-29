@@ -31,7 +31,7 @@ namespace Mad {
 		uint32_t Size;
 		bool Normalized;
 
-		BufferElement() { }
+		//BufferElement() { }
 
 		BufferElement(ShaderData type, const std::string& name, bool normalized = false)
 			: Name(name), Type(type), Size(ShaderDataSize(type)), Offset(0), Normalized(normalized)
@@ -95,7 +95,7 @@ namespace Mad {
 
 	class VertexBuffer {
 	public:
-		virtual ~VertexBuffer() {}
+		virtual ~VertexBuffer() = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
@@ -107,7 +107,7 @@ namespace Mad {
 	};
 	class IndexBuffer {
 	public:
-		virtual ~IndexBuffer() {}
+		virtual ~IndexBuffer() = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
