@@ -1,7 +1,7 @@
 #pragma once
 #include "madpch.h"
 
-#include "Mad/Core.h"
+#include "Mad/Core/Core.h"
 #include "Mad/Events/Event.h"
 
 namespace Mad {

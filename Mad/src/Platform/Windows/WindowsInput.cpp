@@ -1,6 +1,6 @@
 #include "madpch.h"
 #include "WindowsInput.h"
-#include "Mad/Application.h"
+#include "Mad/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Mad {

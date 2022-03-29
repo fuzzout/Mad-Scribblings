@@ -1,8 +1,8 @@
 #include "madpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Mad/Input.h"
-#include "Mad/KeyCodes.h"
+#include "Mad/Core/Input.h"
+#include "Mad/Core/KeyCodes.h"
 
 namespace Mad {
 

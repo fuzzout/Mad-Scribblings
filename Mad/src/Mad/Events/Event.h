@@ -1,6 +1,6 @@
 #pragma once
 #include "madpch.h"
-#include "Mad/Core.h"
+#include "Mad/Core/Core.h"
 
 namespace Mad {
 	enum class EventType {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Mad/Core.h"
+#include "Mad/Core/Core.h"
 #include "Layer.h"
 
 #include <vector>

@@ -1,7 +1,7 @@
 #include "madpch.h"
 #include "Application.h"
 
-#include "Mad/Log.h"
+#include "Mad/Core/Log.h"
 
 #include "glm/glm.hpp"
 #include <glfw/glfw3.h>

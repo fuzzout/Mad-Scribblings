@@ -42,16 +42,16 @@
     <ClInclude Include="src\Mad.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Application.h">
+    <ClInclude Include="src\Mad\Core\Application.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core.h">
+    <ClInclude Include="src\Mad\Core\Core.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Core\Timestep.h">
       <Filter>src\Mad\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\EntryPoint.h">
+    <ClInclude Include="src\Mad\Core\EntryPoint.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\ApplicationEvent.h">
@@ -69,22 +69,22 @@
     <ClInclude Include="src\Mad\ImGui\ImGuiLayer.h">
       <Filter>src\Mad\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Input.h">
+    <ClInclude Include="src\Mad\Core\Input.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\KeyCodes.h">
+    <ClInclude Include="src\Mad\Core\KeyCodes.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Layer.h">
+    <ClInclude Include="src\Mad\Core\Layer.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\LayerStack.h">
+    <ClInclude Include="src\Mad\Core\LayerStack.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Log.h">
+    <ClInclude Include="src\Mad\Core\Log.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\MouseButtonCodes.h">
+    <ClInclude Include="src\Mad\Core\MouseButtonCodes.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\Buffer.h">
@@ -114,7 +114,7 @@
     <ClInclude Include="src\Mad\Renderer\VertexArray.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Window.h">
+    <ClInclude Include="src\Mad\Core\Window.h">
       <Filter>src\Mad</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
@@ -144,13 +144,14 @@
     <ClInclude Include="src\madpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\OrthographicCameraController.h" />
+    <ClInclude Include="src\Mad\Core\OrthographicCameraController.h" />
+    <ClInclude Include="src\Mad\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="port\stb_image\stb_image.cpp">
       <Filter>port\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Application.cpp">
+    <ClCompile Include="src\Mad\Core\Application.cpp">
       <Filter>src\Mad</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\ImGui\ImGuiBuild.cpp">
@@ -159,13 +160,13 @@
     <ClCompile Include="src\Mad\ImGui\ImGuiLayer.cpp">
       <Filter>src\Mad\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Layer.cpp">
+    <ClCompile Include="src\Mad\Core\Layer.cpp">
       <Filter>src\Mad</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\LayerStack.cpp">
+    <ClCompile Include="src\Mad\Core\LayerStack.cpp">
       <Filter>src\Mad</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Log.cpp">
+    <ClCompile Include="src\Mad\Core\Log.cpp">
       <Filter>src\Mad</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Renderer\Buffer.cpp">
@@ -219,6 +220,7 @@
     <ClCompile Include="src\madpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Mad\Core\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Mad\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

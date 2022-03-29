@@ -1,10 +1,10 @@
 #include "Mad.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 #include "../imgui/imgui.h"
-
+#include <Mad/Core/EntryPoint.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
+#include "Sandbox2D.h"
 bool logging = false;
 
 class ExampleLayer : public Mad::Layer {
@@ -12,7 +12,7 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Mad::VertexArray::Create());
+		m_VertexArray = Mad::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -21,7 +21,7 @@ public:
 		};
 
 		Mad::Ref<Mad::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Mad::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = (Mad::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Mad::BufferLayout layout = {
 			{ Mad::ShaderData::Float3, "a_Position" },
 			{ Mad::ShaderData::Float4, "a_Color" }
@@ -31,10 +31,10 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		Mad::Ref<Mad::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Mad::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = (Mad::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->AddIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Mad::VertexArray::Create());
+		m_SquareVA = Mad::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -44,7 +44,7 @@ public:
 		};
 
 		Mad::Ref<Mad::VertexBuffer> squareVB;
-		squareVB.reset(Mad::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB = (Mad::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Mad::ShaderData::Float3, "a_Position" },
 			{ Mad::ShaderData::Float2, "a_TexCoord" }
@@ -53,7 +53,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Mad::Ref<Mad::IndexBuffer> squareIB;
-		squareIB.reset(Mad::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = (Mad::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->AddIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -150,9 +150,6 @@ public:
 		m_Texture->Bind();
 		Mad::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
-		// Triangle
-		// Hazel::Renderer::Submit(m_Shader, m_VertexArray);
-
 		Mad::Renderer::EndScene();
 	}
 
@@ -205,7 +202,7 @@ class Sandbox : public Mad::Application {
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox() {

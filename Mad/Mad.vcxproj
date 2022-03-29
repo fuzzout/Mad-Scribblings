@@ -140,24 +140,25 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Mad\OrthographicCameraController.h" />
+    <ClInclude Include="src\Mad\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Mad\Core\OrthographicCameraController.h" />
     <ClInclude Include="port\stb_image\stb_image.h" />
     <ClInclude Include="src\Mad.h" />
-    <ClInclude Include="src\Mad\Application.h" />
-    <ClInclude Include="src\Mad\Core.h" />
+    <ClInclude Include="src\Mad\Core\Application.h" />
+    <ClInclude Include="src\Mad\Core\Core.h" />
     <ClInclude Include="src\Mad\Core\Timestep.h" />
-    <ClInclude Include="src\Mad\EntryPoint.h" />
+    <ClInclude Include="src\Mad\Core\EntryPoint.h" />
     <ClInclude Include="src\Mad\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Mad\Events\Event.h" />
     <ClInclude Include="src\Mad\Events\KeyEvent.h" />
     <ClInclude Include="src\Mad\Events\MouseEvent.h" />
     <ClInclude Include="src\Mad\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Mad\Input.h" />
-    <ClInclude Include="src\Mad\KeyCodes.h" />
-    <ClInclude Include="src\Mad\Layer.h" />
-    <ClInclude Include="src\Mad\LayerStack.h" />
-    <ClInclude Include="src\Mad\Log.h" />
-    <ClInclude Include="src\Mad\MouseButtonCodes.h" />
+    <ClInclude Include="src\Mad\Core\Input.h" />
+    <ClInclude Include="src\Mad\Core\KeyCodes.h" />
+    <ClInclude Include="src\Mad\Core\Layer.h" />
+    <ClInclude Include="src\Mad\Core\LayerStack.h" />
+    <ClInclude Include="src\Mad\Core\Log.h" />
+    <ClInclude Include="src\Mad\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Mad\Renderer\Buffer.h" />
     <ClInclude Include="src\Mad\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Mad\Renderer\OrthographicCamera.h" />
@@ -167,7 +168,7 @@
     <ClInclude Include="src\Mad\Renderer\Shader.h" />
     <ClInclude Include="src\Mad\Renderer\Texture.h" />
     <ClInclude Include="src\Mad\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Mad\Window.h" />
+    <ClInclude Include="src\Mad\Core\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -179,14 +180,15 @@
     <ClInclude Include="src\madpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Mad\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Mad\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Mad\Core\OrthographicCameraController.cpp" />
     <ClCompile Include="port\stb_image\stb_image.cpp" />
-    <ClCompile Include="src\Mad\Application.cpp" />
+    <ClCompile Include="src\Mad\Core\Application.cpp" />
     <ClCompile Include="src\Mad\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Mad\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Mad\Layer.cpp" />
-    <ClCompile Include="src\Mad\LayerStack.cpp" />
-    <ClCompile Include="src\Mad\Log.cpp" />
+    <ClCompile Include="src\Mad\Core\Layer.cpp" />
+    <ClCompile Include="src\Mad\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Mad\Core\Log.cpp" />
     <ClCompile Include="src\Mad\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Mad\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Mad\Renderer\RenderCommand.cpp" />

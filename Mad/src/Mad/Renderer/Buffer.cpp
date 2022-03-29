@@ -6,13 +6,13 @@
 
 namespace Mad {
 
-	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size) {
+		Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size) {
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:		MAD_CORE_ASSERT(false, "No renderer API selected.");
 			return nullptr;
 
 		case RendererAPI::API::OpenGL:
-			return new OpenGLVertexBuffer(vertices, size);
+			return std::make_shared<OpenGLVertexBuffer>(vertices, size);
 		}
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI.");
 		return nullptr;
@@ -24,13 +24,13 @@ namespace Mad {
 	INDEX BUFFER
 	
 	*/
-	IndexBuffer* IndexBuffer::Create(uint32_t* vertices, uint32_t size) {
+		Ref<IndexBuffer> IndexBuffer::Create(uint32_t * vertices, uint32_t size) {
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:		MAD_CORE_ASSERT(false, "No renderer API selected.");
 			return nullptr;
 
 		case RendererAPI::API::OpenGL:
-			return new OpenGLIndexBuffer(vertices, size);
+			return std::make_shared<OpenGLIndexBuffer>(vertices, size);
 		}
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI.");
 		return nullptr;

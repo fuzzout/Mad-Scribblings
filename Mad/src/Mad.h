@@ -1,20 +1,21 @@
 #pragma once
 
 //FOR USE BY APPLICATIONS
-#include "Mad/MouseButtonCodes.h"
-#include "Mad/KeyCodes.h"
+#include "Mad/Core/MouseButtonCodes.h"
+#include "Mad/Core/KeyCodes.h"
 
-#include "Mad/Application.h"
-#include "Mad/Layer.h"
-#include "Mad/Log.h"
+#include "Mad/Core/Application.h"
+#include "Mad/Core/Layer.h"
+#include "Mad/Core/Log.h"
 #include "Mad/Core/Timestep.h"
-#include "Mad/Input.h"
-#include "Mad/OrthographicCameraController.h"
+#include "Mad/Core/Input.h"
+#include "Mad/Core/OrthographicCameraController.h"
 #include "Mad/ImGui/ImGuiLayer.h"
 
 //Renderer below
 #include "Mad/Renderer/RenderCommand.h"
 #include "Mad/Renderer/Renderer.h"
+#include "Mad/Renderer/Renderer2D.h"
 
 #include "Mad/Renderer/Buffer.h"
 #include "Mad/Renderer/Shader.h"
@@ -26,7 +27,5 @@
 #include "Mad/Renderer/OrthographicCamera.h"
 
 //Entry point --
-
-#include "Mad/EntryPoint.h"
 
 //Entry point ends--

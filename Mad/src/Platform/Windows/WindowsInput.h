@@ -1,5 +1,5 @@
 #pragma once
-#include "Mad/Input.h"
+#include "Mad/Core/Input.h"
 
 namespace Mad {
 

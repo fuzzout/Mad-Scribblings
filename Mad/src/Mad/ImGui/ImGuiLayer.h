@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Mad/Layer.h"
+#include "Mad/Core/Layer.h"
 #include <Mad/Events/MouseEvent.h>
 #include <Mad/Events/KeyEvent.h>
 #include <Mad/Events/ApplicationEvent.h>

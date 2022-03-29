@@ -1,5 +1,5 @@
 #pragma once
-#include "Mad/Window.h"
+#include "Mad/Core/Window.h"
 
 #include <GLFW/glfw3.h>
 
