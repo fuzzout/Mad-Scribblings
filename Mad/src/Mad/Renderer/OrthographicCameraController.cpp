@@ -1,5 +1,5 @@
 #include "madpch.h"
-#include "OrthographicCameraController.h"
+#include "Mad/Renderer/OrthographicCameraController.h"
 
 #include "Mad/Core/Input.h"
 #include "Mad/Core/KeyCodes.h"

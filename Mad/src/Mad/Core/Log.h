@@ -1,11 +1,11 @@
 #pragma once
-#include "Core.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/fmt/ostr.h"
+#include "Mad/Core/Core.h"
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 
 namespace Mad {
-	class MAD_API Log
+	class Log
 	{
 	public:
 		static void Init();

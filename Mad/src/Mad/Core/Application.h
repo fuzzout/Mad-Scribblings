@@ -1,8 +1,7 @@
 #pragma once
 
-#include "Core.h"
-
-#include "Window.h"
+#include "Mad/Core/Core.h"
+#include "Mad/Core/Window.h"
 #include "Mad/Core/LayerStack.h"
 #include "Mad/Events/Event.h"
 #include "Mad/Events/ApplicationEvent.h"
@@ -13,11 +12,11 @@
 
 namespace Mad {
 
-	class MAD_API Application
+	class Application
 	{
 		public:
 			Application();
-			virtual ~Application() = default;;
+			virtual ~Application();
 
 			void Run();
 

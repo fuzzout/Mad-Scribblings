@@ -1,9 +1,9 @@
 #pragma once
 #include "Mad/Core/Window.h"
+#include "Mad/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
-#include "Mad/Renderer/GraphicsContext.h"
 
 namespace Mad {
 
@@ -29,7 +29,7 @@ namespace Mad {
 			virtual void Shutdown();
 		private:
 			GLFWwindow* m_Window;
-			GraphicsContext* m_Context;
+			Scope<GraphicsContext> m_Context;
 
 			struct WindowData
 			{

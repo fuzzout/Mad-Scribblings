@@ -1,15 +1,15 @@
 #include "madpch.h"
-#include "Application.h"
+#include "Mad/Core/Application.h"
 
 #include "Mad/Core/Log.h"
 
 #include "glm/glm.hpp"
 #include <glfw/glfw3.h>
 #include "Mad/Renderer/Renderer.h"
+#include "Mad/Core/Input.h"
 
 namespace Mad {
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
@@ -17,11 +17,18 @@ namespace Mad {
 		MAD_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(MAD_BIND_EVENT_FN(Application::OnEvent));
+
 		Renderer::Init();
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+	}
+
+	Application::~Application()
+	{
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -38,8 +45,8 @@ namespace Mad {
 
 	void Application::OnEvent(Event& e) {
 		EventDispatcher dispatch(e);
-		dispatch.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		dispatch.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+		dispatch.Dispatch<WindowCloseEvent>(MAD_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatch.Dispatch<WindowResizeEvent>(MAD_BIND_EVENT_FN(Application::OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) 
 		{

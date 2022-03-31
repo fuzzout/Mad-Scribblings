@@ -1,7 +1,7 @@
 #include "madpch.h"
-#include "VertexArray.h"
+#include "Mad/Renderer/VertexArray.h"
 
-#include "Renderer.h"
+#include "Mad/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Mad {
@@ -9,7 +9,7 @@ namespace Mad {
 		{
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None: MAD_CORE_ASSERT(false, "RendererAPI::None is not supported."); return nullptr;
-		case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexArray>();
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLVertexArray>();
 		}
 
 		MAD_CORE_ASSERT(false, "UnknownRendererAPI!");

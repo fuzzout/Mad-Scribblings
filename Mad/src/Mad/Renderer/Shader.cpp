@@ -1,7 +1,7 @@
 #include "madpch.h"
-#include "Shader.h"
+#include "Mad/Renderer/Shader.h"
 
-#include "Renderer.h"
+#include "Mad/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Mad {
@@ -10,7 +10,7 @@ namespace Mad {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    MAD_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -22,7 +22,7 @@ namespace Mad {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    MAD_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI!");

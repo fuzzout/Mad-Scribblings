@@ -1,8 +1,8 @@
 #pragma once
-#include "Event.h"
+#include "Mad/Events/Event.h"
 
 namespace Mad {
-	class MAD_API KeyEvent : public Event {
+	class  KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
@@ -14,7 +14,7 @@ namespace Mad {
 		int m_KeyCode;
 	};
 
-	class MAD_API KeyPressedEvent : public KeyEvent
+	class  KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -33,7 +33,7 @@ namespace Mad {
 		int m_RepeatCount;
 	};
 
-	class MAD_API KeyTypedEvent : public KeyEvent
+	class  KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)
@@ -48,7 +48,7 @@ namespace Mad {
 		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
-	class MAD_API KeyReleasedEvent : public KeyEvent {
+	class  KeyReleasedEvent : public KeyEvent {
 	public:
 		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}

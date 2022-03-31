@@ -16,7 +16,7 @@
 #error Mad only supports windows!
 #endif
 
-#ifdef HZ_ENABLE_ASSERTS
+#ifdef MAD_ENABLE_ASSERTS
 #define MAD_ASSERT(x, ...) { if(!(x)) { MAD_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define MAD_CORE_ASSERT(x, ...) { if(!(x)) { MAD_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
@@ -24,8 +24,8 @@
 #define MAD_CORE_ASSERT(x, ...)
 #endif
 
-#ifdef HZ_DEBUG
-#define HZ_ENABLE_ASSERTS
+#ifdef MAD_DEBUG
+#define MAD_ENABLE_ASSERTS
 #endif
 
 #define BIT(x) (1 << x)

@@ -1,5 +1,5 @@
 #include "madpch.h"
-#include "OrthographicCamera.h"
+#include "Mad/Renderer/OrthographicCamera.h"
 
 #include "glm/gtc/matrix_transform.hpp"
 

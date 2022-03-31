@@ -1,6 +1,5 @@
 #include "Mad.h"
-#include "Platform/OpenGL/OpenGLShader.h"
-#include "../imgui/imgui.h"
+#include <../imgui/imgui.h>
 #include <Mad/Core/EntryPoint.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -20,18 +19,18 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Mad::Ref<Mad::VertexBuffer> vertexBuffer;
-		vertexBuffer = (Mad::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Mad::Ref<Mad::VertexBuffer> vertexBuffer = (Mad::VertexBuffer::Create(vertices, sizeof(vertices)));
+
 		Mad::BufferLayout layout = {
 			{ Mad::ShaderData::Float3, "a_Position" },
 			{ Mad::ShaderData::Float4, "a_Color" }
 		};
+
 		vertexBuffer->SetLayout(layout);
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Mad::Ref<Mad::IndexBuffer> indexBuffer;
-		indexBuffer = (Mad::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Mad::Ref<Mad::IndexBuffer> indexBuffer = (Mad::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->AddIndexBuffer(indexBuffer);
 
 		m_SquareVA = Mad::VertexArray::Create();
@@ -43,8 +42,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Mad::Ref<Mad::VertexBuffer> squareVB;
-		squareVB = (Mad::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		Mad::Ref<Mad::VertexBuffer> squareVB = (Mad::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Mad::ShaderData::Float3, "a_Position" },
 			{ Mad::ShaderData::Float2, "a_TexCoord" }
@@ -52,8 +50,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Mad::Ref<Mad::IndexBuffer> squareIB;
-		squareIB = (Mad::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Mad::Ref<Mad::IndexBuffer> squareIB = (Mad::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->AddIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -121,8 +118,8 @@ public:
 
 		m_Texture = Mad::Texture2D::Create("src/asdf1.png");
 
-		std::dynamic_pointer_cast<Mad::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Mad::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 
 	}
 
@@ -137,8 +134,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.7f));
 
-		std::dynamic_pointer_cast<Mad::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Mad::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		
 				glm::vec3 pos(0.9f, 0.9, 0.0f);

@@ -1,10 +1,21 @@
 #include "madpch.h"
-#include "Buffer.h"
+#include "Mad/Renderer/Buffer.h"
 
-#include "Renderer.h"
+#include "Mad/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Mad {
+		Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+		{
+			switch (Renderer::GetAPI())
+			{
+			case RendererAPI::API::None:    MAD_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(size);
+			}
+
+			MAD_CORE_ASSERT(false, "Unknown RendererAPI!");
+			return nullptr;
+		}
 
 		Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size) {
 		switch (Renderer::GetAPI()) {
@@ -12,7 +23,7 @@ namespace Mad {
 			return nullptr;
 
 		case RendererAPI::API::OpenGL:
-			return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+			return CreateRef<OpenGLVertexBuffer>(vertices, size);
 		}
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI.");
 		return nullptr;
@@ -30,7 +41,7 @@ namespace Mad {
 			return nullptr;
 
 		case RendererAPI::API::OpenGL:
-			return std::make_shared<OpenGLIndexBuffer>(vertices, size);
+			return CreateRef<OpenGLIndexBuffer>(vertices, size);
 		}
 		MAD_CORE_ASSERT(false, "Unknown RendererAPI.");
 		return nullptr;

@@ -1,22 +1,22 @@
 #include "madpch.h"
-#include "OpenGLVertexArray.h"
+#include "Platform/OpenGL/OpenGLVertexArray.h"
 #include "glad/glad.h"
 
 namespace Mad {
 
 	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderData type) {
 		switch (type) {
-		case Mad::ShaderData::Float:    return GL_FLOAT;
-		case Mad::ShaderData::Float2:   return GL_FLOAT;
-		case Mad::ShaderData::Float3:   return GL_FLOAT;
-		case Mad::ShaderData::Float4:   return GL_FLOAT;
-		case Mad::ShaderData::Mat3:     return GL_FLOAT;
-		case Mad::ShaderData::Mat4:     return GL_FLOAT;
-		case Mad::ShaderData::Int:      return GL_INT;
-		case Mad::ShaderData::Int2:     return GL_INT;
-		case Mad::ShaderData::Int3:     return GL_INT;
-		case Mad::ShaderData::Int4:     return GL_INT;
-		case Mad::ShaderData::Bool:     return GL_BOOL;
+		case ShaderData::Float:    return GL_FLOAT;
+		case ShaderData::Float2:   return GL_FLOAT;
+		case ShaderData::Float3:   return GL_FLOAT;
+		case ShaderData::Float4:   return GL_FLOAT;
+		case ShaderData::Mat3:     return GL_FLOAT;
+		case ShaderData::Mat4:     return GL_FLOAT;
+		case ShaderData::Int3:     return GL_INT;
+		case ShaderData::Bool:     return GL_BOOL;
+		case ShaderData::Int:      return GL_INT;
+		case ShaderData::Int2:     return GL_INT;
+		case ShaderData::Int4:     return GL_INT;
 		}
 		MAD_CORE_ASSERT(false, "Unknown ShaderDataTypeToOpenGL conversion.");
 		return 0;
@@ -42,7 +42,7 @@ namespace Mad {
 		glBindVertexArray(0);
 	}
 
-	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
+	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
 	{
 		MAD_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex buffer has no layout!");
 		glBindVertexArray(m_RendererID);
@@ -64,7 +64,7 @@ namespace Mad {
 		m_VertexBuffers.push_back(vertexBuffer);
 	}
 
-	void OpenGLVertexArray::AddIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)
+	void OpenGLVertexArray::AddIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 	{
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();

@@ -1,4 +1,5 @@
 #pragma once
+#include "Mad/Core/Core.h"
 
 #ifdef MAD_PLATFORM_WINDOWS
 

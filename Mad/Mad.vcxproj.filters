@@ -144,7 +144,7 @@
     <ClInclude Include="src\madpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core\OrthographicCameraController.h" />
+    <ClInclude Include="src\Mad\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Mad\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +220,8 @@
     <ClCompile Include="src\madpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Core\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Mad\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Mad\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Mad\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

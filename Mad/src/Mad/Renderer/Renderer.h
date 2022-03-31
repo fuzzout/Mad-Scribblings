@@ -1,8 +1,8 @@
 #pragma once
-#include "RenderCommand.h"
+#include "Mad/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Mad/Renderer/OrthographicCamera.h"
+#include "Mad/Renderer/Shader.h"
 
 namespace Mad {
 
@@ -10,6 +10,7 @@ namespace Mad {
 	class Renderer {
 	public:
 		static void Init();
+		static void Shutdown();
 
 		static void OnWindowResize(uint32_t width, uint32_t height);
 

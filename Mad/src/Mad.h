@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Mad/Core/Core.h"
 //FOR USE BY APPLICATIONS
 #include "Mad/Core/MouseButtonCodes.h"
 #include "Mad/Core/KeyCodes.h"
@@ -9,7 +9,7 @@
 #include "Mad/Core/Log.h"
 #include "Mad/Core/Timestep.h"
 #include "Mad/Core/Input.h"
-#include "Mad/Core/OrthographicCameraController.h"
+#include "Mad/Renderer/OrthographicCameraController.h"
 #include "Mad/ImGui/ImGuiLayer.h"
 
 //Renderer below

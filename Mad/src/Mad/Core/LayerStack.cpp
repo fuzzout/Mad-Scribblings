@@ -1,11 +1,7 @@
 #include "madpch.h"
-#include "LayerStack.h"
+#include "Mad/Core/LayerStack.h"
 
 namespace Mad {
-	
-	LayerStack::LayerStack() {
-	
-	}
 
 	LayerStack::~LayerStack() {
 		for (Layer* layer : m_Layers)

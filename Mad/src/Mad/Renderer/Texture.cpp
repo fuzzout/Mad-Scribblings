@@ -1,7 +1,7 @@
 #include "madpch.h"
-#include "Texture.h"
+#include "Mad/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Mad/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Mad {
