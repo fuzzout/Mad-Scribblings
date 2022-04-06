@@ -10,3 +10,9 @@
 [submodule "Mad/port/glm"]
 	path = Mad/port/glm
 	url = https://github.com/g-truc/glm
+[submodule "Mad/port/yaml-cpp"]
+	path = Mad/port/yaml-cpp
+	url = https://github.com/thecherno/yaml-cpp
+[submodule "Mad/port/ImGuizmo"]
+	path = Mad/port/ImGuizmo
+	url = https://github.com/thecherno/imguizmo

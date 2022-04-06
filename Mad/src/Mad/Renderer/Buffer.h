@@ -49,8 +49,8 @@ namespace Mad {
 				case ShaderData::Int2:		return 2;
 				case ShaderData::Int3:		return 3;
 				case ShaderData::Int4:		return 4;
-				case ShaderData::Mat3:		return 3 * 3;
-				case ShaderData::Mat4:		return 4 * 4;
+				case ShaderData::Mat3:		return 3;// *3;
+				case ShaderData::Mat4:		return 4;// *4;
 				case ShaderData::Bool:		return 1;
 			}
 			MAD_CORE_ASSERT(false, "Unknown ShaderData type.");
@@ -62,7 +62,7 @@ namespace Mad {
 	public:
 		BufferLayout() { }
 
-		BufferLayout(const std::initializer_list<BufferElement>& elements) : m_Elements(elements) {
+		BufferLayout(std::initializer_list<BufferElement> elements) : m_Elements(elements) {
 			CalculateOffsetsAndStride();
 		}
 

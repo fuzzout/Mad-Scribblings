@@ -1,5 +1,5 @@
 #pragma once
-#include "Mad/Core/Core.h"
+#include "Mad/Core/Base.h"
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 

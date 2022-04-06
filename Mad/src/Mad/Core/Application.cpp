@@ -13,11 +13,11 @@ namespace Mad {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() {
+	Application::Application(const std::string& name) {
 		MAD_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = Window::Create();
+		m_Window = Window::Create(WindowProps(name));
 		m_Window->SetEventCallback(MAD_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
@@ -29,6 +29,11 @@ namespace Mad {
 	Application::~Application()
 	{
 		Renderer::Shutdown();
+	}
+
+	void Application::Close()
+	{
+		m_Running = false;
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -48,9 +53,10 @@ namespace Mad {
 		dispatch.Dispatch<WindowCloseEvent>(MAD_BIND_EVENT_FN(Application::OnWindowClose));
 		dispatch.Dispatch<WindowResizeEvent>(MAD_BIND_EVENT_FN(Application::OnWindowResize));
 
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) 
+
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
-			(*--it)->OnEvent(e);
+			(*it)->OnEvent(e);
 			if (e.Handled)
 				break;
 		}

@@ -1,5 +1,5 @@
 #pragma once
-#include "Mad/Core/Core.h"
+#include "Mad/Core/Base.h"
 #include "Mad/Events/Event.h"
 
 #include "Mad/Core/Timestep.h"

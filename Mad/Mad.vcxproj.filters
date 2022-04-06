@@ -4,6 +4,9 @@
     <Filter Include="port">
       <UniqueIdentifier>{4A619C7C-3698-9D0D-DF84-8310CB9A190F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="port\ImGuizmo">
+      <UniqueIdentifier>{EAE670CE-56A7-EC04-1FE2-35828B6131E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="port\stb_image">
       <UniqueIdentifier>{64B6D019-5084-C41F-3918-35462585A084}</UniqueIdentifier>
     </Filter>
@@ -22,8 +25,17 @@
     <Filter Include="src\Mad\ImGui">
       <UniqueIdentifier>{98C3FE44-0484-7A7B-CDBE-C3F8393EBF57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Mad\Math">
+      <UniqueIdentifier>{879D8DD3-7300-1D78-1C86-552E08C8E8FA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Mad\Renderer">
       <UniqueIdentifier>{5423C3B7-401C-E209-694E-C78E55A6C115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mad\Scene">
+      <UniqueIdentifier>{8BBBAE45-F77B-2A7C-C0B6-73F92C366F58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mad\Utilities">
+      <UniqueIdentifier>{D9F98777-4510-860D-8E87-112FFADC5695}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
@@ -36,6 +48,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="port\ImGuizmo\ImGuizmo.h">
+      <Filter>port\ImGuizmo</Filter>
+    </ClInclude>
     <ClInclude Include="port\stb_image\stb_image.h">
       <Filter>port\stb_image</Filter>
     </ClInclude>
@@ -43,16 +58,37 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Core\Application.h">
-      <Filter>src\Mad</Filter>
+      <Filter>src\Mad\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core\Core.h">
-      <Filter>src\Mad</Filter>
+    <ClInclude Include="src\Mad\Core\Base.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\EntryPoint.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\Input.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\KeyCodes.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\Layer.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\LayerStack.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\Log.h">
+      <Filter>src\Mad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Core\MouseCodes.h">
+      <Filter>src\Mad\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Core\Timestep.h">
       <Filter>src\Mad\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core\EntryPoint.h">
-      <Filter>src\Mad</Filter>
+    <ClInclude Include="src\Mad\Core\Window.h">
+      <Filter>src\Mad\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Events\ApplicationEvent.h">
       <Filter>src\Mad\Events</Filter>
@@ -69,25 +105,16 @@
     <ClInclude Include="src\Mad\ImGui\ImGuiLayer.h">
       <Filter>src\Mad\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core\Input.h">
-      <Filter>src\Mad</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mad\Core\KeyCodes.h">
-      <Filter>src\Mad</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mad\Core\Layer.h">
-      <Filter>src\Mad</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mad\Core\LayerStack.h">
-      <Filter>src\Mad</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mad\Core\Log.h">
-      <Filter>src\Mad</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mad\Core\MouseButtonCodes.h">
-      <Filter>src\Mad</Filter>
+    <ClInclude Include="src\Mad\Math\Math.h">
+      <Filter>src\Mad\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\Buffer.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Camera.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Framebuffer.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\GraphicsContext.h">
@@ -96,10 +123,16 @@
     <ClInclude Include="src\Mad\Renderer\OrthographicCamera.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\OrthographicCameraController.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mad\Renderer\RenderCommand.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\Renderer.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\Renderer2D.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\RendererAPI.h">
@@ -108,19 +141,43 @@
     <ClInclude Include="src\Mad\Renderer\Shader.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mad\Renderer\SubTexture2D.h">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mad\Renderer\Texture.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Mad\Renderer\VertexArray.h">
       <Filter>src\Mad\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Core\Window.h">
-      <Filter>src\Mad</Filter>
+    <ClInclude Include="src\Mad\Scene\Component.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Scene\Entity.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Scene\Scene.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Scene\SceneCamera.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Scene\SceneSerializer.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Scene\ScriptableEntity.h">
+      <Filter>src\Mad\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mad\Utilities\PlatformUtils.h">
+      <Filter>src\Mad\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -135,24 +192,32 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\madpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mad\Renderer\OrthographicCameraController.h" />
-    <ClInclude Include="src\Mad\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Mad\Renderer\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="port\ImGuizmo\ImGuizmo.cpp">
+      <Filter>port\ImGuizmo</Filter>
+    </ClCompile>
     <ClCompile Include="port\stb_image\stb_image.cpp">
       <Filter>port\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Core\Application.cpp">
-      <Filter>src\Mad</Filter>
+      <Filter>src\Mad\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Core\Layer.cpp">
+      <Filter>src\Mad\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Core\LayerStack.cpp">
+      <Filter>src\Mad\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Core\Log.cpp">
+      <Filter>src\Mad\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\ImGui\ImGuiBuild.cpp">
       <Filter>src\Mad\ImGui</Filter>
@@ -160,19 +225,22 @@
     <ClCompile Include="src\Mad\ImGui\ImGuiLayer.cpp">
       <Filter>src\Mad\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Core\Layer.cpp">
-      <Filter>src\Mad</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Mad\Core\LayerStack.cpp">
-      <Filter>src\Mad</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Mad\Core\Log.cpp">
-      <Filter>src\Mad</Filter>
+    <ClCompile Include="src\Mad\Math\Math.cpp">
+      <Filter>src\Mad\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Renderer\Buffer.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Framebuffer.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\GraphicsContext.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mad\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Renderer\RenderCommand.cpp">
@@ -181,10 +249,16 @@
     <ClCompile Include="src\Mad\Renderer\Renderer.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\Renderer2D.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mad\Renderer\RendererAPI.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Renderer\Shader.cpp">
+      <Filter>src\Mad\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Renderer\SubTexture2D.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Mad\Renderer\Texture.cpp">
@@ -193,10 +267,28 @@
     <ClCompile Include="src\Mad\Renderer\VertexArray.cpp">
       <Filter>src\Mad\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mad\Scene\Entity.cpp">
+      <Filter>src\Mad\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Scene\Scene.cpp">
+      <Filter>src\Mad\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Scene\SceneCamera.cpp">
+      <Filter>src\Mad\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Scene\SceneSerializer.cpp">
+      <Filter>src\Mad\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mad\Utilities\PlatformUtils.cpp">
+      <Filter>src\Mad\Utilities</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
@@ -220,8 +312,6 @@
     <ClCompile Include="src\madpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mad\Renderer\OrthographicCameraController.cpp" />
-    <ClCompile Include="src\Mad\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Mad\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Mad\Renderer\EditorCamera.cpp" />
   </ItemGroup>
 </Project>

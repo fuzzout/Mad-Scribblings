@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Mad/Core/Core.h"
+#include "Mad/Core/Base.h"
 #include "Mad/Core/Window.h"
 #include "Mad/Core/LayerStack.h"
 #include "Mad/Events/Event.h"
@@ -15,9 +15,9 @@ namespace Mad {
 	class Application
 	{
 		public:
-			Application();
+			Application(const std::string& name = "Mad Client");
 			virtual ~Application();
-
+			void Close();
 			void Run();
 
 			void OnEvent(Event& e);
@@ -27,15 +27,17 @@ namespace Mad {
 		void PushOverlay(Layer* layer);
 
 
-		inline Window& GetWindow() { return *m_Window; }
+		Window& GetWindow() { return *m_Window; }
 
-		inline static Application& Get() { return *s_Instance; }
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
+		static Application& Get() { return *s_Instance; }
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 
-		std::unique_ptr<Window> m_Window;
+		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		bool m_Minimized = false;

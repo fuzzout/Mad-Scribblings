@@ -12,6 +12,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+#include "Mad/Core/Base.h"
 #include "Mad/Core/Log.h"
 
 #ifdef HZ_PLATFORM_WINDOWS
